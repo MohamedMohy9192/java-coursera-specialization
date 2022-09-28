@@ -43,7 +43,6 @@ public class CaesarBreaker {
             // find the shift use for E
             dkey = 26 - (4 - maxDex);
         }
-
         return cipher.encrypt(encrypted, 26 - dkey);
     }
 

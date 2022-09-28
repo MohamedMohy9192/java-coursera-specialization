@@ -35,7 +35,6 @@ public class WordLengths {
             System.out.println(counts[k] + " words of length " + k);
         }
         System.out.println("The most common word length is: " + indexOfMax(counts));
-
     }
 
     private int indexOfMax(int[] values) {
