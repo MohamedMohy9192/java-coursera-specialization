@@ -1,16 +1,22 @@
-package com.company;
-
-import com.company.duke.FileResource;
+package com.company.cryptography;
 
 public class CaesarCipher {
-    public String encrypt(String input, int key) {
+    private String alphabet;
+    private String shiftedAlphabet;
+    private int mainKey;
+
+    public CaesarCipher(int key) {
+        //Write down the alphabet
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        //Compute the shifted alphabet
+        shiftedAlphabet = alphabet.substring(key) +
+                alphabet.substring(0, key);
+        mainKey = key;
+    }
+
+    public String encrypt(String input) {
         //Make a StringBuilder with message (encrypted)
         StringBuilder encrypted = new StringBuilder(input);
-        //Write down the alphabet
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        //Compute the shifted alphabet
-        String shiftedAlphabet = alphabet.substring(key) +
-                alphabet.substring(0, key);
         //Count from 0 to < length of encrypted, (call it i)
         for (int i = 0; i < encrypted.length(); i++) {
             //Look at the ith character of encrypted (call it currChar)
@@ -37,7 +43,13 @@ public class CaesarCipher {
         return encrypted.toString();
     }
 
-    public void testCaesar() {
+    public String decrypt(String input) {
+        CaesarCipher cipher = new CaesarCipher(26 - mainKey);
+        return cipher.encrypt(input);
+    }
+
+
+/*    public void testCaesar() {
         int key = 17;
         FileResource fr = new FileResource();
         String message = fr.asString();
@@ -45,9 +57,9 @@ public class CaesarCipher {
         System.out.println(encrypted);
         String decrypted = encrypt(encrypted, 26 - key);
         System.out.println(decrypted);
-    }
+    }*/
 
-    public String encryptTwoKeys(String input, int key1, int key2) {
+   /* public String encryptTwoKeys(String input, int key1, int key2) {
         String encrypt1 = encrypt(input, key1);
         String encrypt2 = encrypt(input, key2);
         StringBuilder inputStringBuilder = new StringBuilder(input);
@@ -64,6 +76,6 @@ public class CaesarCipher {
             }
         }
         return inputStringBuilder.toString();
-    }
+    }*/
 
 }

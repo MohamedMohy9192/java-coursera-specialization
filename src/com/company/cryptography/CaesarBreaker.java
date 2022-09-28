@@ -1,4 +1,4 @@
-package com.company;
+package com.company.cryptography;
 
 import com.company.duke.FileResource;
 
@@ -31,7 +31,7 @@ public class CaesarBreaker {
         return indexOfLargest;
     }
 
-    public String decrypt(String encrypted) {
+   /* public String decrypt(String encrypted) {
         CaesarCipher cipher = new CaesarCipher();
         int[] freqs = countLetters(encrypted);
         // return the index in freqs that is the largest
@@ -44,7 +44,7 @@ public class CaesarBreaker {
             dkey = 26 - (4 - maxDex);
         }
         return cipher.encrypt(encrypted, 26 - dkey);
-    }
+    }*/
 
     public void testDecrypt() {
         System.out.println();
@@ -75,6 +75,7 @@ public class CaesarBreaker {
         return key;
     }
 
+/*
     public String decryptTwoKeys(String encrypted) {
         String firstHalfString = halfOfString(encrypted, 0);
         String secondHalfString = halfOfString(encrypted, 1);
@@ -87,8 +88,9 @@ public class CaesarBreaker {
         CaesarCipher cipher = new CaesarCipher();
         return cipher.encryptTwoKeys(encrypted, 26 - key1, 26 - key2);
     }
+*/
 
-    public void testDecryptTwoKey() {
+/*    public void testDecryptTwoKey() {
         FileResource fr = new FileResource();
         String message = fr.asString();
         System.out.println("Message before encrypt " + message);
@@ -97,5 +99,5 @@ public class CaesarBreaker {
         System.out.println("encryptTwoKeys " + encryptTwoKeys);
         String decryptTwoKeys = decryptTwoKeys(encryptTwoKeys);
         System.out.println("decryptTwoKeys " + decryptTwoKeys);
-    }
+    }*/
 }
